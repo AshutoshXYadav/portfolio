@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ashutosh Yadav | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="particles-js"></div>
+
+  <nav id="navbar">
+    <div><strong>Ashutosh</strong></div>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="toggle-mode" onclick="toggleMode()">🌗</button>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-text">
+      <h1>Hi, I'm Ashutosh Yadav</h1>
+      <p><span class="typing" id="typed"></span></p>
+      <a href="Resume.pdf" class="resume-btn" download>Download Resume</a>
+    </div>
+    <div class="hero-img">
+      <img src="OIP (2).jpg" alt="Ashutosh Photo">
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Me</h2>
+    <p>I’m a 3rd-year B.Tech student passionate about Web Development and Software Engineering...</p>
+  </section>
+
+  <section class="section skills" id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li><i class="fab fa-html5"></i> HTML</li>
+      <li><i class="fab fa-css3-alt"></i> CSS</li>
+      <li><i class="fab fa-js-square"></i> JavaScript</li>
+      <li><i class="fab fa-python"></i> Python</li>
+      <li><i class="fas fa-code"></i> C++</li>
+      <li><i class="fab fa-react"></i> React</li>
+      <li><i class="fab fa-github"></i> GitHub</li>
+    </ul>
+  </section>
+
+  <section class="section projects" id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <img src="Portfolio.png" alt="Project 1">
+      <h3>Personal Portfolio</h3>
+      <p>Responsive personal website using HTML, CSS, and JavaScript.</p>
+    </div>
+    <div class="project">
+      <img src="BMS.jpg"alt= "project 2";>
+      <h3>Bank Management System</h3>
+      <p>It's bank angement system which stores trsnsactions in blockChain,its is a web based projrct made on next js</p>
+    </div>
+    <div class="project">
+      <img src="wheather.jpg"alt="Project 3">
+      <h3>Weather Application</h3>
+      <p>A website to display live weather conditions around the world.</p>
+    </div>
+  </section>
+
+  <section class="section certifications" id="certifications">
+    <h2>Certifications</h2>
+    <ul>
+      <li><i class="fas fa-certificate"></i> Web Development - Coursera</li>
+      <li><i class="fas fa-certificate"></i> C++ Masterclass - Udemy</li>
+      <li><i class="fas fa-certificate"></i> Python Basics - Google</li>
+    </ul>
+  </section>
+
+  <section class="section testimonials" id="testimonials">
+    <h2>Experience and Roles</h2>
+    <div class="testimonial">
+      <p>"Ashutosh is a dedicated developer who always delivers on time."</p>
+      <strong>- Mentor, CGCJ</strong>
+    </div>
+    <div class="testimonial">
+      <p>"His UI skills are impressive and improving fast."</p>
+      <strong>- Peer Developer</strong>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <h2>Contact</h2>
+    <form action="https://formsubmit.co/ashutoshyyadav2006@gmail.com" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    &copy; 2025 Ashutosh Yadav | All Rights Reserved
+  </footer>
+
+  <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">⬆️</button>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Typing animation
+    const titles = ["Aspiring Web Developer", "Software Engineer", "UI/UX Enthusiast"];
+    let i = 0, j = 0, current = "", isDeleting = false;
+    function type() {
+      const typingEl = document.getElementById("typed");
+      current = titles[i];
+      typingEl.innerText = current.slice(0, j);
+      if (!isDeleting && j < current.length) {
+        j++;
+        setTimeout(type, 100);
+      } else if (isDeleting && j > 0) {
+        j--;
+        setTimeout(type, 60);
+      } else {
+        isDeleting = !isDeleting;
+        if (!isDeleting) i = (i + 1) % titles.length;
+        setTimeout(type, 1000);
+      }
+    }
+    type();
+
+    // Toggle mode
+    function toggleMode() {
+      document.body.classList.toggle("light");
+      document.getElementById("navbar").classList.toggle("light");
+    }
+
+    // Back to top
+    window.addEventListener("scroll", () => {
+      document.querySelector(".back-to-top").style.display =
+        window.scrollY > 300 ? "block" : "none";
+    });
+
+    // Particles.js load
+    window.onload = function () {
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 100, density: { enable: true, value_area: 1000 }},
+          color: { value: "#a66cfc" },
+          shape: { type: "circle" },
+          opacity: { value: 0.5 },
+          size: { value: 3, random: true },
+          line_linked: {
+            enable: true,
+            distance: 120,
+            color: "#a66cfc",
+            opacity: 0.5,
+            width: 1
+          },
+          move: { enable: true, speed: 3, direction: "none", random: false, straight: false, out_mode: "out" }
+        },
+        interactivity: {
+          events: {
+            onhover: { enable: true, mode: "repulse" },
+            onclick: { enable: true, mode: "push" }
+          },
+          modes: {
+            repulse: { distance: 100, duration: 0.4 },
+            push: { particles_nb: 4 }
+          }
+        },
+        retina_detect: true
+      });
+    };
+  </script>
+</body>
+</html>
